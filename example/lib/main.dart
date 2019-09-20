@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConnectivityAppWrapper(
       app: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Connectivity Wrapper Example',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

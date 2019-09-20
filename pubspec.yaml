@@ -1,5 +1,5 @@
 name: connectivity_wrapper
-description: A new Flutter package which makes sure that app is connected to an active internet connection.
+description: A new Flutter package which provides network-aware widgets.
 version: 0.0.1
 author: Ajay Kumar <ajay.kumar@nonstopio.com>
 homepage: https://github.com/ajaynonstopio/connectivity_wrapper

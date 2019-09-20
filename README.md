@@ -1,6 +1,6 @@
 # connectivity_wrapper
 
-A new Flutter package which makes sure that app is connected to an active internet connection.
+A new Flutter package which provides network-aware widgets.
 
 ## Getting Started
 

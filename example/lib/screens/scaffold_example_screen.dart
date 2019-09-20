@@ -38,10 +38,8 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
                 fontSize: 40.0,
               )
             : null,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
+        child: ListView(
+            children: <Widget>[
             CheckboxListTile(
               title: Text(Strings.customDecoration),
               value: _customDecoration,
@@ -62,7 +60,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             Divider(),
-            P10(),
+            P5(),
             CheckboxListTile(
               title: Text(Strings.customHeight),
               value: _customHeight,
@@ -78,7 +76,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             Divider(),
-            P10(),
+            P5(),
             CheckboxListTile(
               title: Text(Strings.customMessage),
               value: _customMessage,
@@ -94,11 +92,11 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             Divider(),
-            P10(),
+            P5(),
             ListTile(
               title: Text(Strings.customAlignment),
             ),
-            P10(),
+            P5(),
             IconButton(
               icon: Icon(Icons.arrow_upward),
               onPressed: () {
@@ -108,7 +106,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             Divider(),
-            P10(),
+            P5(),
             IconButton(
               icon: Icon(Icons.center_focus_strong),
               onPressed: () {
@@ -118,7 +116,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             Divider(),
-            P10(),
+            P5(),
             IconButton(
               icon: Icon(Icons.arrow_downward),
               onPressed: () {
@@ -128,7 +126,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             Divider(),
-            P10(),
+            P5(),
             CheckboxListTile(
               title: Text(Strings.userInteraction),
               value: _disableInteraction,
@@ -138,7 +136,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
                 });
               },
             ),
-            P10(),
+            P5(),
           ],
         ),
       ),
