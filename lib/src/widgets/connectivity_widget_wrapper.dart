@@ -10,10 +10,6 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
   /// The [offlineWidget] contained by the ConnectivityWidgetWrapper.
   final Widget offlineWidget;
 
-  /// Empty space to inscribe inside the [decoration]. The [child], if any, is
-  /// placed inside this padding.
-  final EdgeInsetsGeometry padding;
-
   /// The decoration to paint behind the [child].
   final Decoration decoration;
 
@@ -42,7 +38,6 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
   const ConnectivityWidgetWrapper({
     Key key,
     this.child,
-    this.padding,
     this.decoration,
     this.message,
     this.messageStyle,
@@ -69,10 +64,6 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
           'Cannot provide both a message and a offlineWidget\n',
         ),
         assert(
-          padding == null || offlineWidget == null,
-          'Cannot provide both a padding and a offlineWidget\n',
-        ),
-        assert(
           alignment == null || offlineWidget == null,
           'Cannot provide both a alignment and a offlineWidget\n',
         ),
@@ -85,7 +76,6 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
         Align(
           alignment: alignment ?? Alignment.bottomCenter,
           child: Container(
-            padding: padding ?? defaultPadding,
             height: height ?? defaultHeight,
             width: MediaQuery.of(context).size.width,
             decoration: decoration ?? BoxDecoration(color: Colors.red.shade300),
@@ -102,7 +92,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
       return Stack(
         children: <Widget>[
           child,
-          disableInteraction
+          disableInteraction && connectivityStatus != ConnectivityStatus.Connected
               ? Column(
                   children: <Widget>[
                     Flexible(
