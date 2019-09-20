@@ -1,7 +1,10 @@
+import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper_example/screens/scaffold_example_screen.dart';
 import 'package:connectivity_wrapper_example/utils/strings.dart';
 import 'package:connectivity_wrapper_example/utils/utils.dart';
 import 'package:flutter/material.dart';
+
+import 'custom_offline_widget_screen.dart';
 
 class MenuScreen extends StatelessWidget {
   @override
@@ -10,16 +13,25 @@ class MenuScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Connectivity Wrapper Example"),
       ),
-      body: ListView(
-        children: <Widget>[
-          ListTile(
-            title: Text(Strings.example1),
-            onTap: () {
-              AppRoutes.push(context, ScaffoldExampleScreen());
-            },
-          ),
-          Divider(),
-        ],
+      body: ConnectivityWidgetWrapper(
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              title: Text(Strings.example1),
+              onTap: () {
+                AppRoutes.push(context, ScaffoldExampleScreen());
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text(Strings.example2),
+              onTap: () {
+                AppRoutes.push(context, CustomOfflineWidgetScreen());
+              },
+            ),
+            Divider(),
+          ],
+        ),
       ),
     );
   }

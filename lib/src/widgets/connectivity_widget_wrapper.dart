@@ -13,9 +13,6 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
   /// The decoration to paint behind the [child].
   final Decoration decoration;
 
-  /// The decoration to paint behind the [child].
-  final Decoration disableDecoration;
-
   /// Disconnected message.
   final String message;
 
@@ -28,11 +25,10 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
   /// widget height.
   final bool stacked;
 
-  /// w.
+  /// Disable the user interaction with child widget
   final bool disableInteraction;
 
   /// How to align the offline widget.
-
   final AlignmentGeometry alignment;
 
   const ConnectivityWidgetWrapper({
@@ -46,7 +42,6 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
     this.stacked = true,
     this.alignment,
     this.disableInteraction = false,
-    this.disableDecoration,
   })  : assert(
           decoration == null || offlineWidget == null,
           'Cannot provide both a color and a offlineWidget\n',
@@ -63,19 +58,15 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
           message == null || offlineWidget == null,
           'Cannot provide both a message and a offlineWidget\n',
         ),
-        assert(
-          alignment == null || offlineWidget == null,
-          'Cannot provide both a alignment and a offlineWidget\n',
-        ),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final connectivityStatus = Provider.of<ConnectivityStatus>(context);
-    var finalOfflineWidget = offlineWidget ??
-        Align(
-          alignment: alignment ?? Alignment.bottomCenter,
-          child: Container(
+    final bool isOffline = Provider.of<ConnectivityStatus>(context) != ConnectivityStatus.Connected;
+    var finalOfflineWidget = Align(
+      alignment: alignment ?? Alignment.bottomCenter,
+      child: offlineWidget ??
+          Container(
             height: height ?? defaultHeight,
             width: MediaQuery.of(context).size.width,
             decoration: decoration ?? BoxDecoration(color: Colors.red.shade300),
@@ -86,18 +77,18 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
               ),
             ),
           ),
-        );
+    );
 
     if (stacked)
       return Stack(
         children: <Widget>[
           child,
-          disableInteraction && connectivityStatus != ConnectivityStatus.Connected
+          disableInteraction && isOffline
               ? Column(
                   children: <Widget>[
                     Flexible(
                       child: Container(
-                        decoration: disableDecoration ??
+                        decoration: decoration ??
                             BoxDecoration(
                               color: Colors.black38,
                             ),
@@ -106,11 +97,11 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
                   ],
                 )
               : C0(),
-          connectivityStatus != ConnectivityStatus.Connected ? finalOfflineWidget : C0(),
+          isOffline ? finalOfflineWidget : C0(),
         ],
       );
 
-    return connectivityStatus != ConnectivityStatus.Connected ? finalOfflineWidget : child;
+    return isOffline ? finalOfflineWidget : child;
   }
 }
 
