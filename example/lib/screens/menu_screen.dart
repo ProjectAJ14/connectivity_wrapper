@@ -5,6 +5,7 @@ import 'package:connectivity_wrapper_example/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_offline_widget_screen.dart';
+import 'network_aware_widget_screen.dart';
 
 class MenuScreen extends StatelessWidget {
   @override
@@ -27,6 +28,13 @@ class MenuScreen extends StatelessWidget {
               title: Text(Strings.example2),
               onTap: () {
                 AppRoutes.push(context, CustomOfflineWidgetScreen());
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text(Strings.example3),
+              onTap: () {
+                AppRoutes.push(context, NetworkAwareWidgetScreen());
               },
             ),
             Divider(),
