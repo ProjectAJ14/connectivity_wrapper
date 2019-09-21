@@ -15,26 +15,28 @@ enum ConnectivityStatus { Connected, Disconnected }
 /// which extends [ChangeNotifier].
 
 class ConnectivityProvider extends ChangeNotifier {
-
   /// [connectivityServiceRefreshTime] Defines the time interval
   /// to check the ConnectivityStatus again
   /// default[defaultRefreshTime] set to 2000 milliseconds
   final int connectivityServiceRefreshTime;
 
-  StreamController<ConnectivityStatus> connectivityController = StreamController<ConnectivityStatus>();
+  StreamController<ConnectivityStatus> connectivityController =
+      StreamController<ConnectivityStatus>();
 
-  Stream<ConnectivityStatus> get connectivityStream => connectivityController.stream;
+  Stream<ConnectivityStatus> get connectivityStream =>
+      connectivityController.stream;
 
   ConnectivityProvider({this.connectivityServiceRefreshTime}) {
     connectivityController.add(ConnectivityStatus.Connected);
-    Future.delayed(Duration(milliseconds:  defaultRefreshTime), () =>
-        _updateConnectivityStatus());
+    Future.delayed(Duration(milliseconds: defaultRefreshTime),
+        () => _updateConnectivityStatus());
   }
 
   _updateConnectivityStatus() async {
     if (await isConnected()) {
       try {
-        final List<InternetAddress> result = await InternetAddress.lookup('google.com');
+        final List<InternetAddress> result =
+            await InternetAddress.lookup('google.com');
         if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
           connectivityController.add(ConnectivityStatus.Connected);
         } else {
@@ -47,7 +49,8 @@ class ConnectivityProvider extends ChangeNotifier {
       connectivityController.add(ConnectivityStatus.Disconnected);
     }
 
-    Future.delayed(Duration(milliseconds: defaultRefreshTime), () => _updateConnectivityStatus());
+    Future.delayed(Duration(milliseconds: defaultRefreshTime),
+        () => _updateConnectivityStatus());
   }
 
   Future<bool> isConnected() async {

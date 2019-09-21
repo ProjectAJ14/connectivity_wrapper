@@ -62,7 +62,8 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isOffline = Provider.of<ConnectivityStatus>(context) != ConnectivityStatus.Connected;
+    final bool isOffline = Provider.of<ConnectivityStatus>(context) !=
+        ConnectivityStatus.Connected;
     var finalOfflineWidget = Align(
       alignment: alignment ?? Alignment.bottomCenter,
       child: offlineWidget ??

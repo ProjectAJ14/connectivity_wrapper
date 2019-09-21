@@ -13,15 +13,17 @@ class ConnectivityAppWrapper extends StatelessWidget {
   /// default[defaultRefreshTime] set to 2000 milliseconds
   final int connectivityServiceRefreshTime;
 
-  const ConnectivityAppWrapper({Key key, @required this.app, this.connectivityServiceRefreshTime})
+  const ConnectivityAppWrapper(
+      {Key key, @required this.app, this.connectivityServiceRefreshTime})
       : assert(app != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StreamProvider<ConnectivityStatus>(
-      builder: (context) =>
-          ConnectivityProvider(connectivityServiceRefreshTime: connectivityServiceRefreshTime).connectivityStream,
+      builder: (context) => ConnectivityProvider(
+              connectivityServiceRefreshTime: connectivityServiceRefreshTime)
+          .connectivityStream,
       child: app,
     );
   }

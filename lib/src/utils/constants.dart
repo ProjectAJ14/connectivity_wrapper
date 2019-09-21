@@ -11,7 +11,8 @@ const double defaultHeight = 50.0;
 const EdgeInsetsGeometry defaultPadding = const EdgeInsets.all(8.0);
 
 ///default message
-const String disconnectedMessage = "Please connect to an active internet connection!";
+const String disconnectedMessage =
+    "Please connect to an active internet connection!";
 
 ///default message Style
 const TextStyle defaultMessageStyle = TextStyle(
