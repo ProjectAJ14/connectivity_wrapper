@@ -1,7 +1,3 @@
-## [0.0.2] - Formatted Code.
-
-* initial release.
-
-## [0.0.1] - initial release.
+## [1.0.0] - initial release.
 
 * initial release.
