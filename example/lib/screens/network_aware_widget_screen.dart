@@ -25,7 +25,7 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
           ConnectivityWidgetWrapper(
             stacked: false,
             offlineWidget: RaisedButton(
-              onPressed: () {},
+              onPressed: null,
               color: Colors.grey,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
