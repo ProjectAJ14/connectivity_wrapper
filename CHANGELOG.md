@@ -1,3 +1,7 @@
-## [1.0.0] - initial release.
+## [1.0.1] - Updated Connectivity Service.
+
+* Updated Connectivity Service.
+
+## [1.0.1] - initial release.
 
 * initial release.

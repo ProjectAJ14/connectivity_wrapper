@@ -1,4 +1,3 @@
-import 'package:connectivity_wrapper/src/providers/connectivity_provider.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -62,8 +61,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isOffline = Provider.of<ConnectivityStatus>(context) !=
-        ConnectivityStatus.Connected;
+    final bool isOffline = Provider.of<ConnectivityStatus>(context) != ConnectivityStatus.CONNECTED;
     var finalOfflineWidget = Align(
       alignment: alignment ?? Alignment.bottomCenter,
       child: offlineWidget ??
@@ -97,8 +95,8 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
                     )
                   ],
                 )
-              : C0(),
-          isOffline ? finalOfflineWidget : C0(),
+              : CustomConnContainerWidget(),
+          isOffline ? finalOfflineWidget : CustomConnContainerWidget(),
         ],
       );
 
@@ -106,7 +104,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
   }
 }
 
-class C0 extends StatelessWidget {
+class CustomConnContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

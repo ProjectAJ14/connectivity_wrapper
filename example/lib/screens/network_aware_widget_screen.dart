@@ -17,11 +17,11 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
           TextField(
             decoration: InputDecoration(labelText: 'Email'),
           ),
-          P5(),
+          Padding5(),
           TextField(
             decoration: InputDecoration(labelText: 'Password'),
           ),
-          P5(),
+          Padding5(),
           ConnectivityWidgetWrapper(
             stacked: false,
             offlineWidget: RaisedButton(
@@ -38,7 +38,7 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    P5(),
+                    Padding5(),
                     CupertinoActivityIndicator(radius: 8.0),
                   ],
                 ),

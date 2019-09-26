@@ -4,7 +4,7 @@ This plugin allows Flutter apps provide feedback on your app when it's not conne
 
 ## Usage
 
-###STEP 1: Add the package to `pubspec.yaml`
+##STEP 1: Add the package to `pubspec.yaml`
 
 
 ```yaml
@@ -15,13 +15,13 @@ dependencies:
   connectivity_wrapper: 1.0.0
 ```
 
-###STEP 2: Import the package to main.dart
+##STEP 2: Import the package to main.dart
 
 
 ```dart
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 ```
-###STEP 3: Wrap `MaterialApp/CupertinoApp` with `ConnectivityAppWrapper`
+##STEP 3: Wrap `MaterialApp/CupertinoApp` with `ConnectivityAppWrapper`
 
 ```dart
 class MyApp extends StatelessWidget {
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-###STEP 4: The last step, Wrap your body widget with `ConnectivityWidgetWrapper`
+##STEP 4: The last step, Wrap your body widget with `ConnectivityWidgetWrapper`
 
 ```dart
 
@@ -82,7 +82,7 @@ class MenuScreen extends StatelessWidget {
 ## Also, you can customize the offlineWidget . Let's see few examples.
 
 
-###Custom Decoration
+##Custom Decoration
 
 
 ```dart
@@ -101,7 +101,7 @@ body: ConnectivityWidgetWrapper(
 ![](https://cdn-images-1.medium.com/max/600/1*qUAaseD03Jrk7I91LDv-sQ.png)
 
 
-###Custom Height and Message
+##Custom Height and Message
 
 
 ```dart
@@ -125,7 +125,7 @@ body: ConnectivityWidgetWrapper(
 
 ![](https://cdn-images-1.medium.com/max/600/1*OeVKSyfV2X9VhupXRdwb2g.png)
 
-###Custom Alignment and Disable User Interaction
+##Custom Alignment and Disable User Interaction
  
 
 ```dart
@@ -141,7 +141,7 @@ body: ConnectivityWidgetWrapper(
 
 
 
-###Provide your own Custom Offline Widget
+##Provide your own Custom Offline Widget
  
 
 ```dart
@@ -156,7 +156,7 @@ body: ConnectivityWidgetWrapper(
 ![](https://cdn-images-1.medium.com/max/600/1*95pBwxafvlsDvcYIs9krJQ.gif)
 
 
-###Convert Any widget to network-aware widget
+##Convert Any widget to network-aware widget
 
 
 Wrap the widget `RaisedButton` which you want to be network-aware with `ConnectivityWidgetWrapper` and set `stacked: false`.
