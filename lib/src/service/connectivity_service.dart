@@ -71,7 +71,9 @@ class ConnectivityService {
   }
 
   Future<ConnectivityStatus> get connectionStatus async {
-    return await hasConnection ? ConnectivityStatus.CONNECTED : ConnectivityStatus.DISCONNECTED;
+    return await hasConnection
+        ? ConnectivityStatus.CONNECTED
+        : ConnectivityStatus.DISCONNECTED;
   }
 
   Duration checkInterval = DEFAULT_INTERVAL;
@@ -95,7 +97,8 @@ class ConnectivityService {
   ConnectivityStatus _lastStatus;
   Timer _timerHandle;
 
-  StreamController<ConnectivityStatus> _statusController = StreamController.broadcast();
+  StreamController<ConnectivityStatus> _statusController =
+      StreamController.broadcast();
 
   Stream<ConnectivityStatus> get onStatusChange => _statusController.stream;
 

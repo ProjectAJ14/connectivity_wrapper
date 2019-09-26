@@ -12,6 +12,9 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
   /// The decoration to paint behind the [child].
   final Decoration decoration;
 
+  /// The color to paint behind the [child].
+  final Color color;
+
   /// Disconnected message.
   final String message;
 
@@ -33,6 +36,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
   const ConnectivityWidgetWrapper({
     Key key,
     this.child,
+    this.color,
     this.decoration,
     this.message,
     this.messageStyle,
@@ -57,18 +61,24 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
           message == null || offlineWidget == null,
           'Cannot provide both a message and a offlineWidget\n',
         ),
+        assert(
+            color == null || decoration == null,
+            'Cannot provide both a color and a decoration\n'
+            'The color argument is just a shorthand for "decoration: new BoxDecoration(color: color)".'),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final bool isOffline = Provider.of<ConnectivityStatus>(context) != ConnectivityStatus.CONNECTED;
+    final bool isOffline = Provider.of<ConnectivityStatus>(context) !=
+        ConnectivityStatus.CONNECTED;
     var finalOfflineWidget = Align(
       alignment: alignment ?? Alignment.bottomCenter,
       child: offlineWidget ??
           Container(
             height: height ?? defaultHeight,
             width: MediaQuery.of(context).size.width,
-            decoration: decoration ?? BoxDecoration(color: Colors.red.shade300),
+            decoration: decoration ??
+                BoxDecoration(color: color ?? Colors.red.shade300),
             child: Center(
               child: Text(
                 message ?? disconnectedMessage,
