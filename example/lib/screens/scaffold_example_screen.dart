@@ -30,7 +30,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
         alignment: _alignment,
         disableInteraction: _disableInteraction,
         decoration: _decoration,
-        height: _height,
+         height: _height,
         message: _message,
         messageStyle: _customMessage
             ? TextStyle(
