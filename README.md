@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.2
-  connectivity_wrapper: 1.0.1
+  connectivity_wrapper: 1.0.2
 ```
 
 ##STEP 2: Import the package to main.dart

@@ -1,4 +1,4 @@
-## [1.0.1] - Health suggestions.
+## [1.0.2] - Health suggestions.
 
 * Health suggestions.
 
