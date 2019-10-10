@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 
 class ConnectivityService {
-  static final List<AddressCheckOptions> DEFAULT_ADDRESSES = List.unmodifiable([
+  static final List<AddressCheckOptions> defaultAddresses = List.unmodifiable([
     AddressCheckOptions(
       InternetAddress('1.1.1.1'),
       port: DEFAULT_PORT,
@@ -22,7 +22,7 @@ class ConnectivityService {
     ),
   ]);
 
-  List<AddressCheckOptions> addresses = DEFAULT_ADDRESSES;
+  List<AddressCheckOptions> addresses = defaultAddresses;
 
   factory ConnectivityService() => _instance;
 
@@ -71,9 +71,7 @@ class ConnectivityService {
   }
 
   Future<ConnectivityStatus> get connectionStatus async {
-    return await hasConnection
-        ? ConnectivityStatus.CONNECTED
-        : ConnectivityStatus.DISCONNECTED;
+    return await hasConnection ? ConnectivityStatus.CONNECTED : ConnectivityStatus.DISCONNECTED;
   }
 
   Duration checkInterval = DEFAULT_INTERVAL;
@@ -97,8 +95,7 @@ class ConnectivityService {
   ConnectivityStatus _lastStatus;
   Timer _timerHandle;
 
-  StreamController<ConnectivityStatus> _statusController =
-      StreamController.broadcast();
+  StreamController<ConnectivityStatus> _statusController = StreamController.broadcast();
 
   Stream<ConnectivityStatus> get onStatusChange => _statusController.stream;
 

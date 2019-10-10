@@ -1,3 +1,7 @@
+## [1.0.1] - Health suggestions.
+
+* Health suggestions.
+
 ## [1.0.1] - Updated Connectivity Service.
 
 * Updated Connectivity Service.
