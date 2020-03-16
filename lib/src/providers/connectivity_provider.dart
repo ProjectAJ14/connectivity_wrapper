@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 /// [ConnectivityProvider] event ChangeNotifier class for ConnectivityStatus .
 /// which extends [ChangeNotifier].
+enum ConnectivityStatusType { Connectivity, Ping }
 
 class ConnectivityProvider extends ChangeNotifier {
   StreamController<ConnectivityStatus> connectivityController =
@@ -14,30 +15,34 @@ class ConnectivityProvider extends ChangeNotifier {
 
   Stream<ConnectivityStatus> get connectivityStream =>
       connectivityController.stream;
-
-  ConnectivityProvider() {
+  ConnectivityStatusType type;
+  ConnectivityProvider({
+    type = ConnectivityStatusType.Ping,
+  }) {
     _updateConnectivityStatus();
   }
 
   _updateConnectivityStatus() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    connectivityController.add(
-      connectivityResult == ConnectivityResult.none
-          ? ConnectivityStatus.DISCONNECTED
-          : ConnectivityStatus.CONNECTED,
-    );
-    Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+    if (type == ConnectivityStatusType.Connectivity) {
+      var connectivityResult = await (Connectivity().checkConnectivity());
       connectivityController.add(
-        result == ConnectivityResult.none
+        connectivityResult == ConnectivityResult.none
             ? ConnectivityStatus.DISCONNECTED
             : ConnectivityStatus.CONNECTED,
       );
-    });
-
-    // ConnectivityService()
-    //     .onStatusChange
-    //     .listen((ConnectivityStatus connectivityStatus) {
-    //   connectivityController.add(connectivityStatus);
-    // });
+      Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+        connectivityController.add(
+          result == ConnectivityResult.none
+              ? ConnectivityStatus.DISCONNECTED
+              : ConnectivityStatus.CONNECTED,
+        );
+      });
+    } else {
+      ConnectivityService()
+          .onStatusChange
+          .listen((ConnectivityStatus connectivityStatus) {
+        connectivityController.add(connectivityStatus);
+      });
+    }
   }
 }

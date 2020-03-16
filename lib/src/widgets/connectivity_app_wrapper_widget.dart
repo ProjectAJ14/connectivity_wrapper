@@ -7,16 +7,23 @@ import 'package:provider/provider.dart';
 
 class ConnectivityAppWrapper extends StatelessWidget {
   /// [app] will accept MaterialApp or CupertinoApp must be non-null
+  /// [type] will accept ConnectivityStatusType enum
   final Widget app;
+  final ConnectivityStatusType type;
 
-  const ConnectivityAppWrapper({Key key, @required this.app})
-      : assert(app != null),
+  const ConnectivityAppWrapper({
+    Key key,
+    @required this.app,
+    this.type = ConnectivityStatusType.Ping,
+  })  : assert(app != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StreamProvider<ConnectivityStatus>(
-      builder: (context) => ConnectivityProvider().connectivityStream,
+      builder: (context) => ConnectivityProvider(
+        type: type,
+      ).connectivityStream,
       child: app,
     );
   }
