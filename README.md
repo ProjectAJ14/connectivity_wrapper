@@ -4,24 +4,49 @@ This plugin allows Flutter apps provide feedback on your app when it's not conne
 
 ## Usage
 
-##STEP 1: Add the package to `pubspec.yaml`
-
+###Add the package to `pubspec.yaml`
 
 ```yaml
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.2
-  connectivity_wrapper: 1.0.2
+  connectivity_wrapper: 1.0.3
 ```
 
-##STEP 2: Import the package to main.dart
-
+### Import the package to main.dart
 
 ```dart
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 ```
-##STEP 3: Wrap `MaterialApp/CupertinoApp` with `ConnectivityAppWrapper`
+
+##Check if device is connected to internet or not 
+
+```dart
+...
+
+ onTap: () async {
+        if (await ConnectivityWrapper.instance.isConnected) {
+          showSnackBar(
+            _scaffoldKey,
+            title: "You Are Connected",
+            color: Colors.green,
+          );
+        } else {
+          showSnackBar(
+            _scaffoldKey,
+            title: "You Are Not Connected",
+          );
+        }
+      },
+
+...
+
+```
+
+##Create `Network` Aware Widgets
+
+##STEP 1: Wrap `MaterialApp/CupertinoApp` with `ConnectivityAppWrapper`
 
 ```dart
 class MyApp extends StatelessWidget {
@@ -40,7 +65,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-##STEP 4: The last step, Wrap your body widget with `ConnectivityWidgetWrapper`
+##STEP 2: The last step, Wrap your body widget with `ConnectivityWidgetWrapper`
 
 ```dart
 

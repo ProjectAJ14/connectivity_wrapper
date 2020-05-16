@@ -8,9 +8,12 @@ import 'custom_offline_widget_screen.dart';
 import 'network_aware_widget_screen.dart';
 
 class MenuScreen extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("Connectivity Wrapper Example"),
       ),
@@ -19,7 +22,7 @@ class MenuScreen extends StatelessWidget {
           children: <Widget>[
             ListTile(
               title: Text(Strings.example1),
-              onTap: () {
+              onTap: () async {
                 AppRoutes.push(context, ScaffoldExampleScreen());
               },
             ),
@@ -35,6 +38,24 @@ class MenuScreen extends StatelessWidget {
               title: Text(Strings.example3),
               onTap: () {
                 AppRoutes.push(context, NetworkAwareWidgetScreen());
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text(Strings.example4),
+              onTap: () async {
+                if (await ConnectivityWrapper.instance.isConnected) {
+                  showSnackBar(
+                    _scaffoldKey,
+                    title: "You Are Connected",
+                    color: Colors.green,
+                  );
+                } else {
+                  showSnackBar(
+                    _scaffoldKey,
+                    title: "You Are Not Connected",
+                  );
+                }
               },
             ),
             Divider(),

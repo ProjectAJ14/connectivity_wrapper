@@ -37,14 +37,14 @@ class OfflineWidget extends StatelessWidget {
             height: 300,
             image: AssetImage('assets/dog.gif'),
           ),
-          Padding5(),
+          PA5(),
           Center(
             child: Text(
               Strings.offlineMessage,
               style: TextStyle(color: Colors.white, fontSize: 30.0),
             ),
           ),
-          Padding5(),
+          PA5(),
         ],
       ),
     );

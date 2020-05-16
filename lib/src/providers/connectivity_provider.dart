@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:connectivity_wrapper/src/service/connectivity_service.dart';
-import 'package:connectivity_wrapper/src/utils/constants.dart';
+import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:flutter/material.dart';
 
 /// [ConnectivityProvider] event ChangeNotifier class for ConnectivityStatus .
@@ -20,8 +19,7 @@ class ConnectivityProvider extends ChangeNotifier {
   }
 
   _updateConnectivityStatus() async {
-    ConnectivityService()
-        .onStatusChange
+    ConnectivityWrapper.instance.onStatusChange
         .listen((ConnectivityStatus connectivityStatus) {
       connectivityController.add(connectivityStatus);
     });

@@ -1,5 +1,5 @@
+import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper/src/providers/connectivity_provider.dart';
-import 'package:connectivity_wrapper/src/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +16,8 @@ class ConnectivityAppWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<ConnectivityStatus>(
-      builder: (context) => ConnectivityProvider().connectivityStream,
+      initialData: ConnectivityStatus.CONNECTED,
+      create: (context) => ConnectivityProvider().connectivityStream,
       child: app,
     );
   }

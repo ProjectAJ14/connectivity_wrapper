@@ -19,7 +19,7 @@ const Duration DEFAULT_TIMEOUT = const Duration(seconds: 10);
 const Duration DEFAULT_INTERVAL = const Duration(seconds: 2);
 
 ///default value for height
-const double defaultHeight = 50.0;
+const double defaultHeight = 40.0;
 
 ///default padding
 const EdgeInsetsGeometry defaultPadding = const EdgeInsets.all(8.0);
@@ -34,9 +34,3 @@ const TextStyle defaultMessageStyle = TextStyle(
   color: Colors.white,
   inherit: false,
 );
-
-/// Connection Status Check Result
-///
-/// Connected: Device connected to network
-/// Disconnected: Device not connected to any network
-enum ConnectivityStatus { CONNECTED, DISCONNECTED }
