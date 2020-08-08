@@ -17,6 +17,7 @@ import 'package:connectivity_wrapper/src/utils/constants.dart';
 
 export 'package:connectivity_wrapper/src/widgets/connectivity_app_wrapper_widget.dart';
 export 'package:connectivity_wrapper/src/widgets/connectivity_widget_wrapper.dart';
+export 'package:connectivity_wrapper/src/widgets/connectivity_screen_wrapper.dart';
 
 /// Connection Status Check Result
 ///
@@ -125,6 +126,8 @@ class ConnectivityWrapper {
   bool get hasListeners => _statusController.hasListener;
 
   bool get isActivelyChecking => _statusController.hasListener;
+
+  ConnectivityStatus get lastStatus => _lastStatus;
 }
 
 class AddressCheckOptions {

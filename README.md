@@ -1,20 +1,23 @@
+[![](https://img.shields.io/badge/build-1.0.4-brightgreen)](https://github.com/ajaynonstopio/connectivity_wrapper) 
+
 # connectivity_wrapper
 
 This plugin allows Flutter apps provide feedback on your app when it's not connected to it, or when there's no connection.
 
-## Usage
+## Let's get started
 
-###Add the package to `pubspec.yaml`
+1. Go to `pubspec.yaml` 
+2. add a ns_utils and replace `[version]` with the latest version:  
 
 ```yaml
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.2
-  connectivity_wrapper: 1.0.3
+  connectivity_wrapper: ^[version]
 ```
+3. click the packages get button or *flutter pub get*  
 
-### Import the package to main.dart
+## Import the package
 
 ```dart
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
@@ -65,7 +68,7 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-##STEP 2: The last step, Wrap your body widget with `ConnectivityWidgetWrapper`
+##STEP 2: The last step, Wrap your body widget with `ConnectivityWidgetWrapper` or use [`ConnectivityScreenWrapper`](https://github.com/ajaynonstopio/connectivity_wrapper/blob/master/example/lib/screens/menu_screen.dart) for In-build animation
 
 ```dart
 
@@ -76,7 +79,7 @@ class MenuScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Connectivity Wrapper Example"),
       ),
-      body: ConnectivityWidgetWrapper(
+      body: ConnectivityWidgetWrapper( // or use ##ConnectivityScreenWrapper for In build animation
         child: ListView(
           children: <Widget>[
             ListTile(

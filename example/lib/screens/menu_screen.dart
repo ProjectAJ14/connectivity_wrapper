@@ -17,7 +17,11 @@ class MenuScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Connectivity Wrapper Example"),
       ),
-      body: ConnectivityWidgetWrapper(
+      body: ConnectivityScreenWrapper(
+        disableInteraction: true,
+        disableWidget: Container(
+          color: Colors.red.withOpacity(0.3),
+        ),
         child: ListView(
           children: <Widget>[
             ListTile(

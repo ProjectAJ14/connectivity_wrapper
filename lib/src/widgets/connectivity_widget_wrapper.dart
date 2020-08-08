@@ -1,5 +1,6 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
+import 'package:connectivity_wrapper/src/widgets/empty_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
   /// widget height.
   final double height;
 
-  /// widget height.
+  /// Use Stack or not stacked.
   final bool stacked;
 
   /// Disable the user interaction with child widget
@@ -106,21 +107,11 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
                     )
                   ],
                 )
-              : C0(),
-          isOffline ? finalOfflineWidget : C0(),
+              : EmptyContainer(),
+          isOffline ? finalOfflineWidget : EmptyContainer(),
         ],
       );
 
     return isOffline ? finalOfflineWidget : child;
-  }
-}
-
-class C0 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 0.0,
-      height: 0.0,
-    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:connectivity_wrapper/src/widgets/connectivity_screen_wrapper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -34,3 +35,23 @@ const TextStyle defaultMessageStyle = TextStyle(
   color: Colors.white,
   inherit: false,
 );
+
+extension PositionOnScreenExtention on PositionOnScreen {
+  bool get isTOP => this == PositionOnScreen.TOP;
+
+  bool get isBOTTOM => this == PositionOnScreen.BOTTOM;
+
+  double top(double height, bool isOffline) {
+    if (this.isTOP) {
+      return isOffline ? 0 : (-height);
+    }
+    return null;
+  }
+
+  double bottom(double height, bool isOffline) {
+    if (this.isBOTTOM) {
+      return isOffline ? 0 : (-height);
+    }
+    return null;
+  }
+}
