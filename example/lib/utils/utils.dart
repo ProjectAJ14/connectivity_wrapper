@@ -9,13 +9,13 @@ class AppRoutes {
 }
 
 showSnackBar(
-  GlobalKey<ScaffoldState> scaffoldKey, {
+  BuildContext context, {
   @required String title,
   Color color,
   int milliseconds = 1000,
   TextStyle style,
 }) {
-  scaffoldKey.currentState?.showSnackBar(
+  ScaffoldMessenger.of(context).showSnackBar(
     new SnackBar(
       backgroundColor: color ?? Colors.red,
       duration: Duration(milliseconds: milliseconds),

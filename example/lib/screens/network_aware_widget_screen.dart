@@ -24,9 +24,11 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
           PA5(),
           ConnectivityWidgetWrapper(
             stacked: false,
-            offlineWidget: RaisedButton(
+            offlineWidget: ElevatedButton(
               onPressed: null,
-              color: Colors.grey,
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -44,7 +46,7 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
                 ),
               ),
             ),
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: () {},
               child: Text(
                 "Sign In",
@@ -52,7 +54,9 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              color: Colors.blue,
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              ),
             ),
           ),
         ],

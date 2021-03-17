@@ -6,25 +6,25 @@ import 'package:provider/provider.dart';
 
 class ConnectivityWidgetWrapper extends StatelessWidget {
   /// The [child] contained by the ConnectivityWidgetWrapper.
-  final Widget child;
+  final Widget? child;
 
   /// The [offlineWidget] contained by the ConnectivityWidgetWrapper.
-  final Widget offlineWidget;
+  final Widget? offlineWidget;
 
   /// The decoration to paint behind the [child].
-  final Decoration decoration;
+  final Decoration? decoration;
 
   /// The color to paint behind the [child].
-  final Color color;
+  final Color? color;
 
   /// Disconnected message.
-  final String message;
+  final String? message;
 
   /// If non-null, the style to use for this text.
-  final TextStyle messageStyle;
+  final TextStyle? messageStyle;
 
   /// widget height.
-  final double height;
+  final double? height;
 
   /// Use Stack or not stacked.
   final bool stacked;
@@ -33,10 +33,10 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
   final bool disableInteraction;
 
   /// How to align the offline widget.
-  final AlignmentGeometry alignment;
+  final AlignmentGeometry? alignment;
 
   const ConnectivityWidgetWrapper({
-    Key key,
+    Key? key,
     this.child,
     this.color,
     this.decoration,
@@ -92,7 +92,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
 
     if (stacked)
       return Stack(
-        children: <Widget>[
+        children: (<Widget?>[
           child,
           disableInteraction && isOffline
               ? Column(
@@ -109,9 +109,9 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
                 )
               : EmptyContainer(),
           isOffline ? finalOfflineWidget : EmptyContainer(),
-        ],
+        ]) as List<Widget>,
       );
 
-    return isOffline ? finalOfflineWidget : child;
+    return isOffline ? finalOfflineWidget : child!;
   }
 }

@@ -1,3 +1,7 @@
+## [1.0.5] - Maintenance issues and suggestions.
+
+- Migrating to null safety and updated provider to: ^5.0.0 [#7](https://github.com/ajaynonstopio/connectivity_wrapper/issues/7)
+
 ## [1.0.4] - Maintenance issues and suggestions.
 
 - Added New ConnectivityScreenWrapper for [#1](https://github.com/ajaynonstopio/connectivity_wrapper/issues/1)
@@ -20,9 +24,3 @@
 ## [1.0.1] - initial release.
 
 - Initial release.
-
-
-
-   export FLUTTER_ROOT= /Users/Office/SDK/flutter  # on macOS or Linux
-
-   set FLUTTER_ROOT=~/dev/flutter     # on Windows

@@ -10,37 +10,37 @@ enum PositionOnScreen {
 
 class ConnectivityScreenWrapper extends StatelessWidget {
   /// The [child] contained by the ConnectivityScreenWrapper.
-  final Widget child;
+  final Widget? child;
 
   /// The decoration to paint behind the [child].
-  final Decoration decoration;
+  final Decoration? decoration;
 
   /// The color to paint behind the [child].
-  final Color color;
+  final Color? color;
 
   /// Disconnected message.
-  final String message;
+  final String? message;
 
   /// If non-null, the style to use for this text.
-  final TextStyle messageStyle;
+  final TextStyle? messageStyle;
 
   /// widget height.
-  final double height;
+  final double? height;
 
   /// How to align the offline widget.
   final PositionOnScreen positionOnScreen;
 
   /// How to align the offline widget.
-  final Duration duration;
+  final Duration? duration;
 
   /// Disable the user interaction with child widget
   final bool disableInteraction;
 
   /// Disable the user interaction with child widget
-  final Widget disableWidget;
+  final Widget? disableWidget;
 
   const ConnectivityScreenWrapper({
-    Key key,
+    Key? key,
     this.child,
     this.color,
     this.decoration,
@@ -86,12 +86,12 @@ class ConnectivityScreenWrapper extends StatelessWidget {
     return AbsorbPointer(
       absorbing: (disableInteraction && isOffline),
       child: Stack(
-        children: <Widget>[
+        children: (<Widget?>[
           child,
           if (disableInteraction && isOffline)
             if (disableWidget != null) disableWidget,
           offlineWidget,
-        ],
+        ]) as List<Widget>,
       ),
     );
   }

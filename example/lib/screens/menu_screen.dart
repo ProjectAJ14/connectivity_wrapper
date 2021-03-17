@@ -50,13 +50,13 @@ class MenuScreen extends StatelessWidget {
               onTap: () async {
                 if (await ConnectivityWrapper.instance.isConnected) {
                   showSnackBar(
-                    _scaffoldKey,
+                    context,
                     title: "You Are Connected",
                     color: Colors.green,
                   );
                 } else {
                   showSnackBar(
-                    _scaffoldKey,
+                    context,
                     title: "You Are Not Connected",
                   );
                 }

@@ -9,9 +9,7 @@ class ConnectivityAppWrapper extends StatelessWidget {
   /// [app] will accept MaterialApp or CupertinoApp must be non-null
   final Widget app;
 
-  const ConnectivityAppWrapper({Key key, @required this.app})
-      : assert(app != null),
-        super(key: key);
+  const ConnectivityAppWrapper({Key? key, required this.app}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

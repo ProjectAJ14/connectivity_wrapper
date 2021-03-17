@@ -16,8 +16,8 @@ import 'dart:io';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 
 export 'package:connectivity_wrapper/src/widgets/connectivity_app_wrapper_widget.dart';
-export 'package:connectivity_wrapper/src/widgets/connectivity_widget_wrapper.dart';
 export 'package:connectivity_wrapper/src/widgets/connectivity_screen_wrapper.dart';
+export 'package:connectivity_wrapper/src/widgets/connectivity_widget_wrapper.dart';
 
 /// Connection Status Check Result
 ///
@@ -62,14 +62,14 @@ class ConnectivityWrapper {
   Future<AddressCheckResult> isHostReachable(
     AddressCheckOptions options,
   ) async {
-    Socket sock;
+    Socket? sock;
     try {
       sock = await Socket.connect(
         options.address,
         options.port,
         timeout: options.timeout,
       );
-      sock?.destroy();
+      sock.destroy();
       return AddressCheckResult(options, true);
     } catch (e) {
       sock?.destroy();
@@ -99,7 +99,7 @@ class ConnectivityWrapper {
 
   Duration checkInterval = DEFAULT_INTERVAL;
 
-  _maybeEmitStatusUpdate([Timer timer]) async {
+  _maybeEmitStatusUpdate([Timer? timer]) async {
     _timerHandle?.cancel();
     timer?.cancel();
 
@@ -115,8 +115,8 @@ class ConnectivityWrapper {
     _lastStatus = currentStatus;
   }
 
-  ConnectivityStatus _lastStatus;
-  Timer _timerHandle;
+  ConnectivityStatus? _lastStatus;
+  Timer? _timerHandle;
 
   StreamController<ConnectivityStatus> _statusController =
       StreamController.broadcast();
@@ -127,7 +127,7 @@ class ConnectivityWrapper {
 
   bool get isActivelyChecking => _statusController.hasListener;
 
-  ConnectivityStatus get lastStatus => _lastStatus;
+  ConnectivityStatus? get lastStatus => _lastStatus;
 }
 
 class AddressCheckOptions {

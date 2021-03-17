@@ -41,14 +41,14 @@ extension PositionOnScreenExtention on PositionOnScreen {
 
   bool get isBOTTOM => this == PositionOnScreen.BOTTOM;
 
-  double top(double height, bool isOffline) {
+  double? top(double height, bool isOffline) {
     if (this.isTOP) {
       return isOffline ? 0 : (-height);
     }
     return null;
   }
 
-  double bottom(double height, bool isOffline) {
+  double? bottom(double height, bool isOffline) {
     if (this.isBOTTOM) {
       return isOffline ? 0 : (-height);
     }
