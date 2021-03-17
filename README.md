@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/build-1.0.4-brightgreen)](https://github.com/ajaynonstopio/connectivity_wrapper) 
+[![](https://img.shields.io/badge/build-1.0.5-brightgreen)](https://github.com/ajaynonstopio/connectivity_wrapper)
 
 # connectivity_wrapper
 
