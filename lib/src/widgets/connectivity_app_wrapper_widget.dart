@@ -1,7 +1,12 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper/src/providers/connectivity_provider.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 ///[ConnectivityAppWrapper] is a StatelessWidget.
 

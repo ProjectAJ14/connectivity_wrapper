@@ -1,7 +1,12 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 enum PositionOnScreen {
   TOP,
@@ -39,6 +44,9 @@ class ConnectivityScreenWrapper extends StatelessWidget {
   /// Disable the user interaction with child widget
   final Widget? disableWidget;
 
+  /// How the text should be aligned horizontally.
+  final TextAlign? textAlign;
+
   const ConnectivityScreenWrapper({
     Key? key,
     this.child,
@@ -47,6 +55,7 @@ class ConnectivityScreenWrapper extends StatelessWidget {
     this.message,
     this.messageStyle,
     this.height,
+    this.textAlign,
     this.duration,
     this.positionOnScreen = PositionOnScreen.BOTTOM,
     this.disableInteraction = false,
@@ -64,7 +73,7 @@ class ConnectivityScreenWrapper extends StatelessWidget {
 
     double _height = height ?? defaultHeight;
 
-    final Widget offlineWidget = AnimatedPositioned(
+    final Widget _offlineWidget = AnimatedPositioned(
       top: positionOnScreen.top(_height, isOffline),
       bottom: positionOnScreen.bottom(_height, isOffline),
       child: AnimatedContainer(
@@ -76,6 +85,7 @@ class ConnectivityScreenWrapper extends StatelessWidget {
           child: Text(
             message ?? disconnectedMessage,
             style: messageStyle ?? defaultMessageStyle,
+            textAlign: textAlign,
           ),
         ),
         duration: duration ?? Duration(milliseconds: 300),
@@ -87,10 +97,10 @@ class ConnectivityScreenWrapper extends StatelessWidget {
       absorbing: (disableInteraction && isOffline),
       child: Stack(
         children: (<Widget?>[
-          child,
+          if (child != null) child,
           if (disableInteraction && isOffline)
             if (disableWidget != null) disableWidget,
-          offlineWidget,
+          _offlineWidget,
         ]) as List<Widget>,
       ),
     );

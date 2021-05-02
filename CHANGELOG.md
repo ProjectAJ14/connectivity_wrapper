@@ -1,3 +1,7 @@
+## [1.0.6] - Maintenance issues and suggestions.
+
+- Resolved [#6](https://github.com/ajaynonstopio/connectivity_wrapper/issues/6)
+
 ## [1.0.5] - Maintenance issues and suggestions.
 
 - Migrating to null safety and updated provider to: ^5.0.0 [#7](https://github.com/ajaynonstopio/connectivity_wrapper/issues/7)

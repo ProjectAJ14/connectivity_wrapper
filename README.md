@@ -1,4 +1,5 @@
-[![](https://img.shields.io/badge/build-1.0.5-brightgreen)](https://github.com/ajaynonstopio/connectivity_wrapper)
+[![](https://img.shields.io/badge/build-1.0.6-brightgreen)](https://github.com/ajaynonstopio/connectivity_wrapper)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # connectivity_wrapper
 
@@ -258,13 +259,15 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
 whether you can reliably make a network connection. Always guard your app code
 against timeouts and errors that might come from the network layer.
  
-## Getting Started
+ 
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Contributing
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+There are couple of ways in which you can contribute.
+- Propose any feature, enhancement
+- Report a bug
+- Fix a bug
+- Participate in a discussion and help in decision making
+- Write and improve some **documentation**. Documentation is super critical and its importance
+  cannot be overstated!
+- Send in a Pull Request :-)

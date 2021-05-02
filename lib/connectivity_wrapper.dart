@@ -10,9 +10,11 @@
 ///
 library connectivity_wrapper;
 
+// Dart imports:
 import 'dart:async';
 import 'dart:io';
 
+// Project imports:
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 
 export 'package:connectivity_wrapper/src/widgets/connectivity_app_wrapper_widget.dart';
