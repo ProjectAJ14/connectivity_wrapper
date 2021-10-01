@@ -31,23 +31,25 @@ export 'package:connectivity_wrapper/src/widgets/connectivity_widget_wrapper.dar
 enum ConnectivityStatus { CONNECTED, DISCONNECTED }
 
 class ConnectivityWrapper {
-  static final List<AddressCheckOptions> _defaultAddresses = List.unmodifiable([
-    AddressCheckOptions(
-      InternetAddress('1.1.1.1'),
-      port: DEFAULT_PORT,
-      timeout: DEFAULT_TIMEOUT,
-    ),
-    AddressCheckOptions(
-      InternetAddress('8.8.4.4'),
-      port: DEFAULT_PORT,
-      timeout: DEFAULT_TIMEOUT,
-    ),
-    AddressCheckOptions(
-      InternetAddress('208.67.222.222'),
-      port: DEFAULT_PORT,
-      timeout: DEFAULT_TIMEOUT,
-    ),
-  ]);
+  static List<AddressCheckOptions> get _defaultAddresses => (kIsWeb)
+      ? []
+      : List.unmodifiable([
+          AddressCheckOptions(
+            InternetAddress('1.1.1.1'),
+            port: DEFAULT_PORT,
+            timeout: DEFAULT_TIMEOUT,
+          ),
+          AddressCheckOptions(
+            InternetAddress('8.8.4.4'),
+            port: DEFAULT_PORT,
+            timeout: DEFAULT_TIMEOUT,
+          ),
+          AddressCheckOptions(
+            InternetAddress('208.67.222.222'),
+            port: DEFAULT_PORT,
+            timeout: DEFAULT_TIMEOUT,
+          ),
+        ]);
 
   List<AddressCheckOptions> addresses = _defaultAddresses;
 
