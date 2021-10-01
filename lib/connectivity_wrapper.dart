@@ -16,6 +16,8 @@ import 'dart:io';
 
 // Project imports:
 import 'package:connectivity_wrapper/src/utils/constants.dart';
+import 'package:flutter/foundation.dart';
+import 'package:connectivity/connectivity.dart';
 
 export 'package:connectivity_wrapper/src/widgets/connectivity_app_wrapper_widget.dart';
 export 'package:connectivity_wrapper/src/widgets/connectivity_screen_wrapper.dart';
@@ -83,6 +85,7 @@ class ConnectivityWrapper {
   List<AddressCheckResult> _lastTryResults = <AddressCheckResult>[];
 
   Future<bool> get isConnected async {
+    if (kIsWeb) return await _checkWebConnection();
     List<Future<AddressCheckResult>> requests = [];
 
     for (var addressOptions in addresses) {
@@ -97,6 +100,16 @@ class ConnectivityWrapper {
     return await isConnected
         ? ConnectivityStatus.CONNECTED
         : ConnectivityStatus.DISCONNECTED;
+  }
+
+  ///
+  Future<bool> _checkWebConnection() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi) {
+      return true;
+    }
+    return false;
   }
 
   Duration checkInterval = DEFAULT_INTERVAL;
