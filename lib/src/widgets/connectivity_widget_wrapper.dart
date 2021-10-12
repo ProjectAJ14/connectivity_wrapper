@@ -11,7 +11,7 @@ import 'package:connectivity_wrapper/src/widgets/empty_container.dart';
 
 class ConnectivityWidgetWrapper extends StatelessWidget {
   /// The [child] contained by the ConnectivityWidgetWrapper.
-  final Widget? child;
+  final Widget child;
 
   /// The [offlineWidget] contained by the ConnectivityWidgetWrapper.
   final Widget? offlineWidget;
@@ -42,7 +42,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
 
   const ConnectivityWidgetWrapper({
     Key? key,
-    this.child,
+   required this.child,
     this.color,
     this.decoration,
     this.message,
@@ -97,7 +97,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
 
     if (stacked)
       return Stack(
-        children: (<Widget?>[
+        children: ([
           if (child != null) child,
           disableInteraction && _isOffline
               ? Column(
@@ -114,9 +114,9 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
                 )
               : EmptyContainer(),
           _isOffline ? _finalOfflineWidget : EmptyContainer(),
-        ]) as List<Widget>,
+        ]) ,
       );
 
-    return _isOffline ? _finalOfflineWidget : child!;
+    return _isOffline ? _finalOfflineWidget : child;
   }
 }
