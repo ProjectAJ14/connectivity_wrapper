@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^5.0.0
+  connectivity: ^3.0.6  # To check connectivity for web only
+
 
 dev_dependencies:
   flutter_test:
