@@ -98,7 +98,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
     if (stacked)
       return Stack(
         children: ([
-          if (child != null) child,
+           child,
           disableInteraction && _isOffline
               ? Column(
                   children: <Widget>[
