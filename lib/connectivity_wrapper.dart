@@ -16,6 +16,8 @@ import 'dart:io';
 
 // Project imports:
 import 'package:connectivity_wrapper/src/utils/constants.dart';
+import 'package:flutter/foundation.dart';
+import 'package:connectivity/connectivity.dart';
 
 export 'package:connectivity_wrapper/src/widgets/connectivity_app_wrapper_widget.dart';
 export 'package:connectivity_wrapper/src/widgets/connectivity_screen_wrapper.dart';
@@ -29,23 +31,25 @@ export 'package:connectivity_wrapper/src/widgets/connectivity_widget_wrapper.dar
 enum ConnectivityStatus { CONNECTED, DISCONNECTED }
 
 class ConnectivityWrapper {
-  static final List<AddressCheckOptions> _defaultAddresses = List.unmodifiable([
-    AddressCheckOptions(
-      InternetAddress('1.1.1.1'),
-      port: DEFAULT_PORT,
-      timeout: DEFAULT_TIMEOUT,
-    ),
-    AddressCheckOptions(
-      InternetAddress('8.8.4.4'),
-      port: DEFAULT_PORT,
-      timeout: DEFAULT_TIMEOUT,
-    ),
-    AddressCheckOptions(
-      InternetAddress('208.67.222.222'),
-      port: DEFAULT_PORT,
-      timeout: DEFAULT_TIMEOUT,
-    ),
-  ]);
+  static List<AddressCheckOptions> get _defaultAddresses => (kIsWeb)
+      ? []
+      : List.unmodifiable([
+          AddressCheckOptions(
+            InternetAddress('1.1.1.1'),
+            port: DEFAULT_PORT,
+            timeout: DEFAULT_TIMEOUT,
+          ),
+          AddressCheckOptions(
+            InternetAddress('8.8.4.4'),
+            port: DEFAULT_PORT,
+            timeout: DEFAULT_TIMEOUT,
+          ),
+          AddressCheckOptions(
+            InternetAddress('208.67.222.222'),
+            port: DEFAULT_PORT,
+            timeout: DEFAULT_TIMEOUT,
+          ),
+        ]);
 
   List<AddressCheckOptions> addresses = _defaultAddresses;
 
@@ -83,6 +87,7 @@ class ConnectivityWrapper {
   List<AddressCheckResult> _lastTryResults = <AddressCheckResult>[];
 
   Future<bool> get isConnected async {
+    if (kIsWeb) return await _checkWebConnection();
     List<Future<AddressCheckResult>> requests = [];
 
     for (var addressOptions in addresses) {
@@ -97,6 +102,16 @@ class ConnectivityWrapper {
     return await isConnected
         ? ConnectivityStatus.CONNECTED
         : ConnectivityStatus.DISCONNECTED;
+  }
+
+  ///
+  Future<bool> _checkWebConnection() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi) {
+      return true;
+    }
+    return false;
   }
 
   Duration checkInterval = DEFAULT_INTERVAL;
