@@ -10,14 +10,12 @@
 ///
 library connectivity_wrapper;
 
-// Dart imports:
 import 'dart:async';
 import 'dart:io';
 
-// Project imports:
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 import 'package:flutter/foundation.dart';
-import 'package:connectivity/connectivity.dart';
 
 export 'package:connectivity_wrapper/src/widgets/connectivity_app_wrapper_widget.dart';
 export 'package:connectivity_wrapper/src/widgets/connectivity_screen_wrapper.dart';
