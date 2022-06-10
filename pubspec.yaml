@@ -5,14 +5,13 @@ documentation: https://github.com/ajaynonstopio/connectivity_wrapper
 homepage: https://github.com/ajaynonstopio/connectivity_wrapper
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.1 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^5.0.0
-  connectivity: ^3.0.6  # To check connectivity for web only
-
+  provider: ^6.0.3
+  connectivity: ^3.0.6 # To check connectivity for web only
 
 dev_dependencies:
   flutter_test:

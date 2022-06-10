@@ -96,12 +96,12 @@ class ConnectivityScreenWrapper extends StatelessWidget {
     return AbsorbPointer(
       absorbing: (disableInteraction && isOffline),
       child: Stack(
-        children: (<Widget?>[
-          if (child != null) child,
+        children: (<Widget>[
+          if (child != null) child ?? SizedBox.shrink(),
           if (disableInteraction && isOffline)
-            if (disableWidget != null) disableWidget,
+            if (disableWidget != null) disableWidget ?? SizedBox.shrink(),
           _offlineWidget,
-        ]) as List<Widget>,
+        ]),
       ),
     );
   }

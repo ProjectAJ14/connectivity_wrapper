@@ -10,10 +10,10 @@ class AppRoutes {
 
 showSnackBar(
   BuildContext context, {
-  @required String title,
-  Color color,
+  required String title,
+  Color? color,
   int milliseconds = 1000,
-  TextStyle style,
+  TextStyle? style,
 }) {
   ScaffoldMessenger.of(context).showSnackBar(
     new SnackBar(
