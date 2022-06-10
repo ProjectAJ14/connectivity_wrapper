@@ -1,11 +1,8 @@
-// Dart imports:
 import 'dart:async';
 
+import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 // Flutter imports:
 import 'package:flutter/material.dart';
-
-// Project imports:
-import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 
 /// [ConnectivityProvider] event ChangeNotifier class for ConnectivityStatus .
 /// which extends [ChangeNotifier].

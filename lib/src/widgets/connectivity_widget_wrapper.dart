@@ -1,13 +1,11 @@
 // Flutter imports:
-import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:provider/provider.dart';
-
-// Project imports:
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 import 'package:connectivity_wrapper/src/widgets/empty_container.dart';
+import 'package:flutter/material.dart';
+// Package imports:
+import 'package:provider/provider.dart';
 
 class ConnectivityWidgetWrapper extends StatelessWidget {
   /// The [child] contained by the ConnectivityWidgetWrapper.
@@ -42,7 +40,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
 
   const ConnectivityWidgetWrapper({
     Key? key,
-   required this.child,
+    required this.child,
     this.color,
     this.decoration,
     this.message,
@@ -97,8 +95,8 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
 
     if (stacked)
       return Stack(
-        children: ([
-           child,
+        children: (<Widget>[
+          child,
           disableInteraction && _isOffline
               ? Column(
                   children: <Widget>[
@@ -114,7 +112,7 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
                 )
               : EmptyContainer(),
           _isOffline ? _finalOfflineWidget : EmptyContainer(),
-        ]) ,
+        ]),
       );
 
     return _isOffline ? _finalOfflineWidget : child;

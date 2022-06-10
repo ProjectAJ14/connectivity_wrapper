@@ -11,11 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.0.3
-  connectivity: ^3.0.6 # To check connectivity for web only
+  connectivity_plus: ^2.2.0 # To check connectivity for web only
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  import_sorter: ^4.4.1 #run to sort import => flutter pub run import_sorter:main
 
 flutter:
