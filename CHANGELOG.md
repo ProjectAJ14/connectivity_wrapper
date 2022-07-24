@@ -1,3 +1,7 @@
+## [1.1.0] - Updated plugins 
+- Resolved [#12](https://github.com/ajaynonstopio/connectivity_wrapper/issues/12)
+- Updated example for showing the widget for the entire app
+
 ## [1.0.6] - Maintenance issues and suggestions.
 
 - Resolved [#6](https://github.com/ajaynonstopio/connectivity_wrapper/issues/6)

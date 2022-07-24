@@ -14,6 +14,13 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: MenuScreen(),
+        builder: (buildContext, widget) {
+          return ConnectivityWidgetWrapper(
+            child: widget,
+            disableInteraction: true,
+            height: 80,
+          );
+        },
       ),
     );
   }

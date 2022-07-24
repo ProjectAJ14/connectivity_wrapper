@@ -18,7 +18,7 @@ class MenuScreen extends StatelessWidget {
         title: Text("Connectivity Wrapper Example"),
       ),
       body: ConnectivityScreenWrapper(
-        disableInteraction: true,
+        disableInteraction: false,
         disableWidget: Container(
           color: Colors.red.withOpacity(0.3),
         ),

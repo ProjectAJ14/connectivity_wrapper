@@ -50,6 +50,36 @@ import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 
 ##Create `Network` Aware Widgets
 
+#Type 1: A common widget for the entire app
+
+##STEP 1: Wrap `MaterialApp/CupertinoApp` with `ConnectivityAppWrapper`
+
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ConnectivityAppWrapper(
+      app: MaterialApp(
+        title: 'Connectivity Wrapper Example',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MenuScreen(),
+        builder: (buildContext, widget) {
+          return ConnectivityWidgetWrapper(
+            child: widget,
+            disableInteraction: true,
+            height: 80,
+          );
+        },
+      ),
+    );
+  }
+}
+```
+
+#Type 2: Screen/widget specific widgets
+
 ##STEP 1: Wrap `MaterialApp/CupertinoApp` with `ConnectivityAppWrapper`
 
 ```dart
@@ -68,6 +98,7 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+
 
 ##STEP 2: The last step, Wrap your body widget with `ConnectivityWidgetWrapper` or use [`ConnectivityScreenWrapper`](https://github.com/ajaynonstopio/connectivity_wrapper/blob/master/example/lib/screens/menu_screen.dart) for In-build animation
 
