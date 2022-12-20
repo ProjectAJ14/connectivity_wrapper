@@ -5,23 +5,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NetworkAwareWidgetScreen extends StatelessWidget {
+  const NetworkAwareWidgetScreen({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Strings.example3),
+        title: const Text(Strings.example3),
       ),
       body: ListView(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         children: <Widget>[
-          TextField(
+          const TextField(
             decoration: InputDecoration(labelText: 'Email'),
           ),
-          PA5(),
-          TextField(
+          const PA5(),
+          const TextField(
             decoration: InputDecoration(labelText: 'Password'),
           ),
-          PA5(),
+          const PA5(),
           ConnectivityWidgetWrapper(
             stacked: false,
             offlineWidget: ElevatedButton(
@@ -33,7 +35,7 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
+                  children: const <Widget>[
                     Text(
                       "Connecting",
                       style: TextStyle(
@@ -48,14 +50,14 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
             ),
             child: ElevatedButton(
               onPressed: () {},
-              child: Text(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              ),
+              child: const Text(
                 "Sign In",
                 style: TextStyle(
                   color: Colors.white,
                 ),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
             ),
           ),

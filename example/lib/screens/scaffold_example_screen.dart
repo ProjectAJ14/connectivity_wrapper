@@ -4,8 +4,10 @@ import 'package:connectivity_wrapper_example/utils/ui_helper.dart';
 import 'package:flutter/material.dart';
 
 class ScaffoldExampleScreen extends StatefulWidget {
+  const ScaffoldExampleScreen({Key key}) : super(key: key);
+
   @override
-  _ScaffoldExampleScreenState createState() => _ScaffoldExampleScreenState();
+  State<ScaffoldExampleScreen> createState() => _ScaffoldExampleScreenState();
 }
 
 class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
@@ -24,7 +26,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Strings.example1),
+        title: const Text(Strings.example1),
       ),
       body: ConnectivityWidgetWrapper(
         alignment: _alignment,
@@ -33,7 +35,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
         height: _height,
         message: _message,
         messageStyle: _customMessage
-            ? TextStyle(
+            ? const TextStyle(
                 color: Colors.white,
                 fontSize: 40.0,
               )
@@ -41,16 +43,19 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
         child: ListView(
           children: <Widget>[
             CheckboxListTile(
-              title: Text(Strings.customDecoration),
+              title: const Text(Strings.customDecoration),
               value: _customDecoration,
               onChanged: (value) {
                 setState(() {
                   _customDecoration = value;
                   if (_customDecoration) {
-                    _decoration = BoxDecoration(
+                    _decoration = const BoxDecoration(
                       color: Colors.purple,
-                      gradient: new LinearGradient(
-                        colors: [Colors.red, Colors.cyan],
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.red,
+                          Colors.cyan,
+                        ],
                       ),
                     );
                   } else {
@@ -59,10 +64,10 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
                 });
               },
             ),
-            Divider(),
-            PA5(),
+            const Divider(),
+            const PA5(),
             CheckboxListTile(
-              title: Text(Strings.customHeight),
+              title: const Text(Strings.customHeight),
               value: _customHeight,
               onChanged: (value) {
                 setState(() {
@@ -75,10 +80,10 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
                 });
               },
             ),
-            Divider(),
-            PA5(),
+            const Divider(),
+            const PA5(),
             CheckboxListTile(
-              title: Text(Strings.customMessage),
+              title: const Text(Strings.customMessage),
               value: _customMessage,
               onChanged: (value) {
                 setState(() {
@@ -91,44 +96,44 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
                 });
               },
             ),
-            Divider(),
-            PA5(),
-            ListTile(
+            const Divider(),
+            const PA5(),
+            const ListTile(
               title: Text(Strings.customAlignment),
             ),
-            PA5(),
+            const PA5(),
             IconButton(
-              icon: Icon(Icons.arrow_upward),
+              icon: const Icon(Icons.arrow_upward),
               onPressed: () {
                 setState(() {
                   _alignment = Alignment.topCenter;
                 });
               },
             ),
-            Divider(),
-            PA5(),
+            const Divider(),
+            const PA5(),
             IconButton(
-              icon: Icon(Icons.center_focus_strong),
+              icon: const Icon(Icons.center_focus_strong),
               onPressed: () {
                 setState(() {
                   _alignment = Alignment.center;
                 });
               },
             ),
-            Divider(),
-            PA5(),
+            const Divider(),
+            const PA5(),
             IconButton(
-              icon: Icon(Icons.arrow_downward),
+              icon: const Icon(Icons.arrow_downward),
               onPressed: () {
                 setState(() {
                   _alignment = Alignment.bottomCenter;
                 });
               },
             ),
-            Divider(),
-            PA5(),
+            const Divider(),
+            const PA5(),
             CheckboxListTile(
-              title: Text(Strings.userInteraction),
+              title: const Text(Strings.userInteraction),
               value: _disableInteraction,
               onChanged: (value) {
                 setState(() {
@@ -136,7 +141,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
                 });
               },
             ),
-            PA5(),
+            const PA5(),
           ],
         ),
       ),

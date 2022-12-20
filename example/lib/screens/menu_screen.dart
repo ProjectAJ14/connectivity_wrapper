@@ -8,14 +8,16 @@ import 'custom_offline_widget_screen.dart';
 import 'network_aware_widget_screen.dart';
 
 class MenuScreen extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  MenuScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text("Connectivity Wrapper Example"),
+        title: const Text("Connectivity Wrapper Example"),
       ),
       body: ConnectivityScreenWrapper(
         disableInteraction: false,
@@ -25,28 +27,28 @@ class MenuScreen extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             ListTile(
-              title: Text(Strings.example1),
+              title: const Text(Strings.example1),
               onTap: () async {
-                AppRoutes.push(context, ScaffoldExampleScreen());
+                AppRoutes.push(context, const ScaffoldExampleScreen());
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              title: Text(Strings.example2),
+              title: const Text(Strings.example2),
               onTap: () {
-                AppRoutes.push(context, CustomOfflineWidgetScreen());
+                AppRoutes.push(context, const CustomOfflineWidgetScreen());
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              title: Text(Strings.example3),
+              title: const Text(Strings.example3),
               onTap: () {
-                AppRoutes.push(context, NetworkAwareWidgetScreen());
+                AppRoutes.push(context, const NetworkAwareWidgetScreen());
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              title: Text(Strings.example4),
+              title: const Text(Strings.example4),
               onTap: () async {
                 if (await ConnectivityWrapper.instance.isConnected) {
                   showSnackBar(
@@ -62,7 +64,7 @@ class MenuScreen extends StatelessWidget {
                 }
               },
             ),
-            Divider(),
+            const Divider(),
           ],
         ),
       ),
