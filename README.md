@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/build-1.0.6-brightgreen)](https://github.com/ajaynonstopio/connectivity_wrapper)
+[![](https://img.shields.io/badge/build-1.1.1-brightgreen)](https://github.com/ProjectAj14/connectivity_wrapper)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # connectivity_wrapper
@@ -100,7 +100,7 @@ class MyApp extends StatelessWidget {
 ```
 
 
-##STEP 2: The last step, Wrap your body widget with `ConnectivityWidgetWrapper` or use [`ConnectivityScreenWrapper`](https://github.com/ajaynonstopio/connectivity_wrapper/blob/master/example/lib/screens/menu_screen.dart) for In-build animation
+##STEP 2: The last step, Wrap your body widget with `ConnectivityWidgetWrapper` or use [`ConnectivityScreenWrapper`](https://github.com/ProjectAj14/connectivity_wrapper/blob/master/example/lib/screens/menu_screen.dart) for In-build animation
 
 ```dart
 
@@ -302,3 +302,14 @@ There are couple of ways in which you can contribute.
 - Write and improve some **documentation**. Documentation is super critical and its importance
   cannot be overstated!
 - Send in a Pull Request :-)
+
+
+
+<br>
+<div align="center" >
+  <p>Thanks to all contributors of this package</p>
+  <a href="https://github.com/ProjectAJ14/connectivity_wrapper/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=ProjectAJ14/connectivity_wrapper" />
+  </a>
+</div>
+<br>

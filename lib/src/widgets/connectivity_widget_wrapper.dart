@@ -1,10 +1,8 @@
-// Flutter imports:
-
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 import 'package:connectivity_wrapper/src/widgets/empty_container.dart';
 import 'package:flutter/material.dart';
-// Package imports:
+
 import 'package:provider/provider.dart';
 
 class ConnectivityWidgetWrapper extends StatelessWidget {

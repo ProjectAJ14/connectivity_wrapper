@@ -1,19 +1,21 @@
+## [1.1.1] - Updated plugins 
+
 ## [1.1.0] - Updated plugins 
-- Resolved [#12](https://github.com/ajaynonstopio/connectivity_wrapper/issues/12)
+- Resolved [#12](https://github.com/ProjectAj14/connectivity_wrapper/issues/12)
 - Updated example for showing the widget for the entire app
 
 ## [1.0.6] - Maintenance issues and suggestions.
 
-- Resolved [#6](https://github.com/ajaynonstopio/connectivity_wrapper/issues/6)
+- Resolved [#6](https://github.com/ProjectAj14/connectivity_wrapper/issues/6)
 
 ## [1.0.5] - Maintenance issues and suggestions.
 
-- Migrating to null safety and updated provider to: ^5.0.0 [#7](https://github.com/ajaynonstopio/connectivity_wrapper/issues/7)
+- Migrating to null safety and updated provider to: ^5.0.0 [#7](https://github.com/ProjectAj14/connectivity_wrapper/issues/7)
 
 ## [1.0.4] - Maintenance issues and suggestions.
 
-- Added New ConnectivityScreenWrapper for [#1](https://github.com/ajaynonstopio/connectivity_wrapper/issues/1)
-- Updated to  provider: ^4.3.2 [#2](https://github.com/ajaynonstopio/connectivity_wrapper/issues/2)
+- Added New ConnectivityScreenWrapper for [#1](https://github.com/ProjectAj14/connectivity_wrapper/issues/1)
+- Updated to  provider: ^4.3.2 [#2](https://github.com/ProjectAj14/connectivity_wrapper/issues/2)
 - Exposed `lastStatus` as an API
 
 ## [1.0.3] - Maintenance issues and suggestions.

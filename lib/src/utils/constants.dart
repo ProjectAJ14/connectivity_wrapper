@@ -1,6 +1,4 @@
-// Flutter imports:
 import 'package:connectivity_wrapper/src/widgets/connectivity_screen_wrapper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// More info on why default port is 53
@@ -13,7 +11,7 @@ const int DEFAULT_PORT = 53;
 ///
 /// Timeout is the number of seconds before a request is dropped
 /// and an address is considered unreachable
-const Duration DEFAULT_TIMEOUT = const Duration(seconds: 10);
+const Duration DEFAULT_TIMEOUT = const Duration(seconds: 5);
 
 /// Default interval is 2 seconds
 ///

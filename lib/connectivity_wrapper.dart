@@ -85,7 +85,10 @@ class ConnectivityWrapper {
   List<AddressCheckResult> _lastTryResults = <AddressCheckResult>[];
 
   Future<bool> get isConnected async {
-    if (kIsWeb) return await _checkWebConnection();
+    bool connected = await _checkWebConnection();
+    if (kIsWeb) return connected;
+    if (!connected) return connected;
+
     List<Future<AddressCheckResult>> requests = [];
 
     for (var addressOptions in addresses) {
