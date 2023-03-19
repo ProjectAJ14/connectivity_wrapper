@@ -1,0 +1,6 @@
+{
+  "disconnectedMessage": "Please connect to an active internet connection!",
+  "@disconnectedMessage": {
+    "description": "Default error message for offline state."
+  }
+}

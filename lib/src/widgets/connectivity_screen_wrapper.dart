@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
-import 'package:flutter/material.dart';
-
-import 'package:provider/provider.dart';
 
 enum PositionOnScreen {
   TOP,
@@ -79,7 +80,7 @@ class ConnectivityScreenWrapper extends StatelessWidget {
             decoration ?? BoxDecoration(color: color ?? Colors.red.shade500),
         child: Center(
           child: Text(
-            message ?? disconnectedMessage,
+            message ??  AppLocalizations.of(context)!.disconnectedMessage,
             style: messageStyle ?? defaultMessageStyle,
             textAlign: textAlign,
           ),

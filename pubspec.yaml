@@ -13,12 +13,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
   provider: ^6.0.5
   connectivity_plus: ^3.0.2  # To check connectivity for web only
 
 
 dev_dependencies:
+  build_runner: ^2.3.3
   flutter_test:
     sdk: flutter
 
 flutter:
+  generate: true
