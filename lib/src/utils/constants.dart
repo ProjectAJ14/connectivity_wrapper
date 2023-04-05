@@ -11,18 +11,18 @@ const int DEFAULT_PORT = 53;
 ///
 /// Timeout is the number of seconds before a request is dropped
 /// and an address is considered unreachable
-const Duration DEFAULT_TIMEOUT = const Duration(seconds: 5);
+const Duration DEFAULT_TIMEOUT = Duration(seconds: 5);
 
 /// Default interval is 2 seconds
 ///
 /// Interval is the time between automatic checks
-const Duration DEFAULT_INTERVAL = const Duration(seconds: 2);
+const Duration DEFAULT_INTERVAL = Duration(seconds: 2);
 
 ///default value for height
 const double defaultHeight = 40.0;
 
 ///default padding
-const EdgeInsetsGeometry defaultPadding = const EdgeInsets.all(8.0);
+const EdgeInsetsGeometry defaultPadding = EdgeInsets.all(8.0);
 
 ///default message
 const String disconnectedMessage =
@@ -41,14 +41,14 @@ extension PositionOnScreenExtention on PositionOnScreen {
   bool get isBOTTOM => this == PositionOnScreen.BOTTOM;
 
   double? top(double height, bool isOffline) {
-    if (this.isTOP) {
+    if (isTOP) {
       return isOffline ? 0 : (-height);
     }
     return null;
   }
 
   double? bottom(double height, bool isOffline) {
-    if (this.isBOTTOM) {
+    if (isBOTTOM) {
       return isOffline ? 0 : (-height);
     }
     return null;

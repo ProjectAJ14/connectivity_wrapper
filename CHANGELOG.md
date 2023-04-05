@@ -1,3 +1,7 @@
+## [1.1.2] - Maintenance issues and suggestions.
+- Updated AddressCheckOptions list
+- Code Refactor i.e added flutter_lints
+
 ## [1.1.1] - Updated plugins 
 
 ## [1.1.0] - Updated plugins 

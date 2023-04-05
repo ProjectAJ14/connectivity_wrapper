@@ -17,6 +17,9 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 import 'package:flutter/foundation.dart';
 
+import 'src/models/address_check_options.dart';
+import 'src/models/address_check_result.dart';
+
 export 'package:connectivity_wrapper/src/widgets/connectivity_app_wrapper_widget.dart';
 export 'package:connectivity_wrapper/src/widgets/connectivity_screen_wrapper.dart';
 export 'package:connectivity_wrapper/src/widgets/connectivity_widget_wrapper.dart';
@@ -31,23 +34,46 @@ enum ConnectivityStatus { CONNECTED, DISCONNECTED }
 class ConnectivityWrapper {
   static List<AddressCheckOptions> get _defaultAddresses => (kIsWeb)
       ? []
-      : List.unmodifiable([
-          AddressCheckOptions(
-            InternetAddress('1.1.1.1'),
-            port: DEFAULT_PORT,
-            timeout: DEFAULT_TIMEOUT,
-          ),
-          AddressCheckOptions(
-            InternetAddress('8.8.4.4'),
-            port: DEFAULT_PORT,
-            timeout: DEFAULT_TIMEOUT,
-          ),
-          AddressCheckOptions(
-            InternetAddress('208.67.222.222'),
-            port: DEFAULT_PORT,
-            timeout: DEFAULT_TIMEOUT,
-          ),
-        ]);
+      : List<AddressCheckOptions>.unmodifiable(
+          <AddressCheckOptions>[
+            AddressCheckOptions(
+              address: InternetAddress(
+                '1.1.1.1',
+                type: InternetAddressType.IPv4,
+              ),
+            ),
+            AddressCheckOptions(
+              address: InternetAddress(
+                '2606:4700:4700::1111',
+                type: InternetAddressType.IPv6,
+              ),
+            ),
+            AddressCheckOptions(
+              address: InternetAddress(
+                '8.8.4.4',
+                type: InternetAddressType.IPv4,
+              ),
+            ),
+            AddressCheckOptions(
+              address: InternetAddress(
+                '2001:4860:4860::8888',
+                type: InternetAddressType.IPv6,
+              ),
+            ),
+            AddressCheckOptions(
+              address: InternetAddress(
+                '208.67.222.222',
+                type: InternetAddressType.IPv4,
+              ),
+            ),
+            AddressCheckOptions(
+              address: InternetAddress(
+                '2620:0:ccc::2',
+                type: InternetAddressType.IPv6,
+              ),
+            ),
+          ],
+        );
 
   List<AddressCheckOptions> addresses = _defaultAddresses;
 
@@ -69,15 +95,21 @@ class ConnectivityWrapper {
     Socket? sock;
     try {
       sock = await Socket.connect(
-        options.address,
+        options.address ?? options.hostname,
         options.port,
         timeout: options.timeout,
+      )
+        ..destroy();
+      return AddressCheckResult(
+        options,
+        isSuccess: true,
       );
-      sock.destroy();
-      return AddressCheckResult(options, true);
     } catch (e) {
       sock?.destroy();
-      return AddressCheckResult(options, false);
+      return AddressCheckResult(
+        options,
+        isSuccess: false,
+      );
     }
   }
 
@@ -117,6 +149,21 @@ class ConnectivityWrapper {
 
   Duration checkInterval = DEFAULT_INTERVAL;
 
+  ConnectivityStatus? _lastStatus;
+
+  Timer? _timerHandle;
+
+  final StreamController<ConnectivityStatus> _statusController =
+      StreamController.broadcast();
+
+  Stream<ConnectivityStatus> get onStatusChange => _statusController.stream;
+
+  bool get hasListeners => _statusController.hasListener;
+
+  bool get isActivelyChecking => _statusController.hasListener;
+
+  ConnectivityStatus? get lastStatus => _lastStatus;
+
   _maybeEmitStatusUpdate([Timer? timer]) async {
     _timerHandle?.cancel();
     timer?.cancel();
@@ -132,46 +179,4 @@ class ConnectivityWrapper {
 
     _lastStatus = currentStatus;
   }
-
-  ConnectivityStatus? _lastStatus;
-  Timer? _timerHandle;
-
-  StreamController<ConnectivityStatus> _statusController =
-      StreamController.broadcast();
-
-  Stream<ConnectivityStatus> get onStatusChange => _statusController.stream;
-
-  bool get hasListeners => _statusController.hasListener;
-
-  bool get isActivelyChecking => _statusController.hasListener;
-
-  ConnectivityStatus? get lastStatus => _lastStatus;
-}
-
-class AddressCheckOptions {
-  final InternetAddress address;
-  final int port;
-  final Duration timeout;
-
-  AddressCheckOptions(
-    this.address, {
-    this.port = DEFAULT_PORT,
-    this.timeout = DEFAULT_TIMEOUT,
-  });
-
-  @override
-  String toString() => "AddressCheckOptions($address, $port, $timeout)";
-}
-
-class AddressCheckResult {
-  final AddressCheckOptions options;
-  final bool isSuccess;
-
-  AddressCheckResult(
-    this.options,
-    this.isSuccess,
-  );
-
-  @override
-  String toString() => "AddressCheckResult($options, $isSuccess)";
 }

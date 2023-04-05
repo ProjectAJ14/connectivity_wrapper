@@ -1,10 +1,10 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper_example/utils/strings.dart';
-import 'package:connectivity_wrapper_example/utils/ui_helper.dart';
+import 'package:connectivity_wrapper_example/utils/ui_helper.dart' as ui_helper;
 import 'package:flutter/material.dart';
 
 class CustomOfflineWidgetScreen extends StatelessWidget {
-  const CustomOfflineWidgetScreen({Key key}) : super(key: key);
+  const CustomOfflineWidgetScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class CustomOfflineWidgetScreen extends StatelessWidget {
 }
 
 class OfflineWidget extends StatelessWidget {
-  const OfflineWidget({Key key}) : super(key: key);
+  const OfflineWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,14 +40,14 @@ class OfflineWidget extends StatelessWidget {
           height: 300,
           image: AssetImage('assets/dog.gif'),
         ),
-        PA5(),
+        ui_helper.Spacer(),
         Center(
           child: Text(
             Strings.offlineMessage,
             style: TextStyle(color: Colors.white, fontSize: 30.0),
           ),
         ),
-        PA5(),
+        ui_helper.Spacer(),
       ],
     );
   }

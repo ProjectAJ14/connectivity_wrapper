@@ -1,10 +1,10 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
-import 'package:connectivity_wrapper_example/utils/strings.dart';
-import 'package:connectivity_wrapper_example/utils/ui_helper.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/strings.dart';
+
 class ScaffoldExampleScreen extends StatefulWidget {
-  const ScaffoldExampleScreen({Key key}) : super(key: key);
+  const ScaffoldExampleScreen({super.key});
 
   @override
   State<ScaffoldExampleScreen> createState() => _ScaffoldExampleScreenState();
@@ -18,9 +18,9 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
   bool _customHeight = false;
   bool _customMessage = false;
 
-  Decoration _decoration;
-  double _height;
-  String _message;
+  Decoration? _decoration;
+  double? _height;
+  String? _message;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +46,9 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               title: const Text(Strings.customDecoration),
               value: _customDecoration,
               onChanged: (value) {
+                if (value == null) {
+                  return;
+                }
                 setState(() {
                   _customDecoration = value;
                   if (_customDecoration) {
@@ -65,11 +68,14 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             const Divider(),
-            const PA5(),
+            const Spacer(),
             CheckboxListTile(
               title: const Text(Strings.customHeight),
               value: _customHeight,
               onChanged: (value) {
+                if (value == null) {
+                  return;
+                }
                 setState(() {
                   _customHeight = value;
                   if (_customHeight) {
@@ -81,11 +87,14 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             const Divider(),
-            const PA5(),
+            const Spacer(),
             CheckboxListTile(
               title: const Text(Strings.customMessage),
               value: _customMessage,
               onChanged: (value) {
+                if (value == null) {
+                  return;
+                }
                 setState(() {
                   _customMessage = value;
                   if (_customMessage) {
@@ -97,11 +106,11 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             const Divider(),
-            const PA5(),
+            const Spacer(),
             const ListTile(
               title: Text(Strings.customAlignment),
             ),
-            const PA5(),
+            const Spacer(),
             IconButton(
               icon: const Icon(Icons.arrow_upward),
               onPressed: () {
@@ -111,7 +120,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             const Divider(),
-            const PA5(),
+            const Spacer(),
             IconButton(
               icon: const Icon(Icons.center_focus_strong),
               onPressed: () {
@@ -121,7 +130,7 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             const Divider(),
-            const PA5(),
+            const Spacer(),
             IconButton(
               icon: const Icon(Icons.arrow_downward),
               onPressed: () {
@@ -131,17 +140,20 @@ class _ScaffoldExampleScreenState extends State<ScaffoldExampleScreen> {
               },
             ),
             const Divider(),
-            const PA5(),
+            const Spacer(),
             CheckboxListTile(
               title: const Text(Strings.userInteraction),
               value: _disableInteraction,
               onChanged: (value) {
+                if (value == null) {
+                  return;
+                }
                 setState(() {
                   _disableInteraction = value;
                 });
               },
             ),
-            const PA5(),
+            const Spacer(),
           ],
         ),
       ),

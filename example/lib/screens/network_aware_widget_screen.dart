@@ -1,11 +1,10 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper_example/utils/strings.dart';
-import 'package:connectivity_wrapper_example/utils/ui_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NetworkAwareWidgetScreen extends StatelessWidget {
-  const NetworkAwareWidgetScreen({Key key}) : super(key: key);
+  const NetworkAwareWidgetScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +18,11 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
           const TextField(
             decoration: InputDecoration(labelText: 'Email'),
           ),
-          const PA5(),
+          const Spacer(),
           const TextField(
             decoration: InputDecoration(labelText: 'Password'),
           ),
-          const PA5(),
+          const Spacer(),
           ConnectivityWidgetWrapper(
             stacked: false,
             offlineWidget: ElevatedButton(
@@ -42,7 +41,7 @@ class NetworkAwareWidgetScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    PA5(),
+                    Spacer(),
                     CupertinoActivityIndicator(radius: 8.0),
                   ],
                 ),

@@ -1,7 +1,6 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 
 enum PositionOnScreen {
@@ -67,16 +66,18 @@ class ConnectivityScreenWrapper extends StatelessWidget {
     final bool isOffline = Provider.of<ConnectivityStatus>(context) !=
         ConnectivityStatus.CONNECTED;
 
-    double _height = height ?? defaultHeight;
+    double height = this.height ?? defaultHeight;
 
-    final Widget _offlineWidget = AnimatedPositioned(
-      top: positionOnScreen.top(_height, isOffline),
-      bottom: positionOnScreen.bottom(_height, isOffline),
+    final Widget offlineWidget = AnimatedPositioned(
+      top: positionOnScreen.top(height, isOffline),
+      bottom: positionOnScreen.bottom(height, isOffline),
+      duration: duration ?? const Duration(milliseconds: 300),
       child: AnimatedContainer(
-        height: _height,
+        height: height,
         width: MediaQuery.of(context).size.width,
         decoration:
             decoration ?? BoxDecoration(color: color ?? Colors.red.shade500),
+        duration: duration ?? const Duration(milliseconds: 300),
         child: Center(
           child: Text(
             message ?? disconnectedMessage,
@@ -84,9 +85,7 @@ class ConnectivityScreenWrapper extends StatelessWidget {
             textAlign: textAlign,
           ),
         ),
-        duration: duration ?? Duration(milliseconds: 300),
       ),
-      duration: duration ?? Duration(milliseconds: 300),
     );
 
     return AbsorbPointer(
@@ -96,7 +95,7 @@ class ConnectivityScreenWrapper extends StatelessWidget {
           if (child != null) child!,
           if (disableInteraction && isOffline)
             if (disableWidget != null) disableWidget!,
-          _offlineWidget,
+          offlineWidget,
         ],
       ),
     );

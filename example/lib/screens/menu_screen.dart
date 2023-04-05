@@ -10,7 +10,7 @@ import 'network_aware_widget_screen.dart';
 class MenuScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  MenuScreen({Key key}) : super(key: key);
+  MenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

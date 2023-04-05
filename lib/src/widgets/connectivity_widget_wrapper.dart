@@ -2,7 +2,6 @@ import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:connectivity_wrapper/src/utils/constants.dart';
 import 'package:connectivity_wrapper/src/widgets/empty_container.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 
 class ConnectivityWidgetWrapper extends StatelessWidget {
@@ -72,9 +71,9 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool _isOffline = Provider.of<ConnectivityStatus>(context) !=
+    final bool isOffline = Provider.of<ConnectivityStatus>(context) !=
         ConnectivityStatus.CONNECTED;
-    Widget _finalOfflineWidget = Align(
+    Widget finalOfflineWidget = Align(
       alignment: alignment ?? Alignment.bottomCenter,
       child: offlineWidget ??
           Container(
@@ -91,28 +90,29 @@ class ConnectivityWidgetWrapper extends StatelessWidget {
           ),
     );
 
-    if (stacked)
+    if (stacked) {
       return Stack(
         children: (<Widget>[
           child,
-          disableInteraction && _isOffline
+          disableInteraction && isOffline
               ? Column(
                   children: <Widget>[
                     Flexible(
                       child: Container(
                         decoration: decoration ??
-                            BoxDecoration(
+                            const BoxDecoration(
                               color: Colors.black38,
                             ),
                       ),
                     )
                   ],
                 )
-              : EmptyContainer(),
-          _isOffline ? _finalOfflineWidget : EmptyContainer(),
+              : const EmptyContainer(),
+          isOffline ? finalOfflineWidget : const EmptyContainer(),
         ]),
       );
+    }
 
-    return _isOffline ? _finalOfflineWidget : child;
+    return isOffline ? finalOfflineWidget : child;
   }
 }

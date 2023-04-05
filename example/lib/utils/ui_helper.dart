@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-class PA5 extends StatelessWidget {
-  const PA5({Key key}) : super(key: key);
+class Spacer extends StatelessWidget {
+  final double? size;
+
+  const Spacer({super.key, this.size});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(padding: EdgeInsets.all(5.0));
+    return Padding(padding: EdgeInsets.all(size ?? 5.0));
   }
 }
