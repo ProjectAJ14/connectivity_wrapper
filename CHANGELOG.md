@@ -1,3 +1,6 @@
+## [1.1.3] - #18 Issue Resolved
+- Exported `AddressCheckOptions`
+
 ## [1.1.2] - Maintenance issues and suggestions.
 - Updated AddressCheckOptions list
 - Code Refactor i.e added flutter_lints

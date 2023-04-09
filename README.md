@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/build-1.1.2-brightgreen)](https://github.com/ProjectAj14/connectivity_wrapper)
+[![](https://img.shields.io/badge/build-1.1.3-brightgreen)](https://github.com/ProjectAj14/connectivity_wrapper)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # connectivity_wrapper

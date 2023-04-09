@@ -24,6 +24,9 @@ export 'package:connectivity_wrapper/src/widgets/connectivity_app_wrapper_widget
 export 'package:connectivity_wrapper/src/widgets/connectivity_screen_wrapper.dart';
 export 'package:connectivity_wrapper/src/widgets/connectivity_widget_wrapper.dart';
 
+export 'src/models/address_check_options.dart';
+export 'src/models/address_check_result.dart';
+
 /// Connection Status Check Result
 ///
 /// [CONNECTED]: Device connected to network
