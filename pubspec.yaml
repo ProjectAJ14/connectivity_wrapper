@@ -1,21 +1,20 @@
 name: connectivity_wrapper
 description: A new Flutter package which provides network-aware widgets.It allows Flutter apps provide feedback on your app when it's not connected to it, or when there's no connection.
-version: 1.1.3
+version: 1.1.4
 documentation: https://github.com/ProjectAj14/connectivity_wrapper
 homepage: https://github.com/ProjectAj14/connectivity_wrapper
 repository: https://github.com/ProjectAJ14/connectivity_wrapper
 issue_tracker: https://github.com/ProjectAJ14/connectivity_wrapper/issues
 
 environment:
-  sdk: '>=2.18.4 <3.0.0'
+  sdk: ">=2.18.4 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
   provider: ^6.0.5
-  connectivity_plus: ^3.0.3  # To check connectivity for web only
-
+  connectivity_plus: ^5.0.1 # To check connectivity for web only
 
 dev_dependencies:
   flutter_lints: ^2.0.1
