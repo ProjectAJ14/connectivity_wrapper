@@ -1,6 +1,6 @@
 ## [1.1.4] - Dependency Update
 
-- connectivity_plus: `^5.0.1`
+- Updated connectivity_plus: `^5.0.1`
 
 ## [1.1.3] - #18 Issue Resolved
 
